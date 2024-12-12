@@ -1,0 +1,395 @@
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #64748b;
+    --background-color: #f8fafc;
+    --container-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --error-color: #ef4444;
+    --success-color: #22c55e;
+    --input-bg: #f8fafc;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --gradient: linear-gradient(135deg, #4f46e5, #4338ca);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
+    color: var(--text-primary);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem;
+    padding: 2.5rem;
+    background: var(--container-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.app-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.app-subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Form Containers and Tabs */
+.auth-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.75rem;
+    background: var(--input-bg);
+    border-radius: 12px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tab-btn.active {
+    background: var(--container-bg);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Input Styling */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.input-icon input,
+.input-icon textarea {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-icon input:focus,
+.input-icon textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Message Composer */
+.message-composer {
+    background: var(--input-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-editor {
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+}
+
+.message-editor textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    border: none;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.editor-tools {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.char-count {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Buttons */
+.action-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.action-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.icon-btn {
+    padding: 0.5rem;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Sent Messages Section */
+.sent-messages {
+    margin-top: 2rem;
+}
+
+.sent-messages h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-item {
+    padding: 1rem;
+    background: var(--input-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.message-item:hover {
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .app-title {
+        font-size: 1.5rem;
+    }
+
+    .message-composer {
+        padding: 1rem;
+    }
+}
+
+/* Add these to your existing CSS */
+
+#auth-section,
+#message-section {
+    transition: opacity 0.3s ease;
+}
+
+#message-section {
+    opacity: 0;
+}
+
+.no-messages {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.no-messages i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.message-error {
+    transition: color 0.3s ease;
+}
+
+/* Form transitions */
+.form-container {
+    display: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.form-container.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Message Section Styles */
+.message-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.message-section.active {
+    opacity: 1;
+}
+
+/* Add to your existing CSS */
+
+.message-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.message-recipient {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.message-status {
+    display: flex;
+    align-items: center;
+}
+
+.message-status i {
+    font-size: 0.875rem;
+}
+
+.text-success {
+    color: var(--success-color);
+}
+
+.no-messages {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.no-messages i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.sent-messages {
+    margin-top: 2rem;
+    background: var(--input-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.sent-messages h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message-item {
+    background: var(--container-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.message-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
