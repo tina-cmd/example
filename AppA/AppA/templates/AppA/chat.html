@@ -1,0 +1,44 @@
+<!-- appA/templates/appA/chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Room</title>
+</head>
+<body>
+    <h1>Chat Room: {{ room_name }}</h1>
+    <div id="chat-log"></div>
+    <input type="text" id="message-input" placeholder="Type your message here..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        const roomName = "{{ room_name }}";
+        const chatSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const chatLog = document.getElementById('chat-log');
+            const message = document.createElement('div');
+            message.textContent = data.sender + ": " + data.content;
+            chatLog.appendChild(message);
+        };
+
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const content = input.value;
+            const sender = 'username';  // Replace with the actual sender's username
+            chatSocket.send(JSON.stringify({
+                'content': content,
+                'sender': sender,
+            }));
+            input.value = '';  // Clear input
+        }
+    </script>
+</body>
+</html>
